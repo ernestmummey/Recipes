@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex justify-content-between pt-4 mb-4">
+                <h2>Welcome {{new_user['first_name']}}</h2>
+                <div class="">
+                    <a href="/recipes/new">Create</a>
+                    <a class="ms-3" href="/logout">Logout</a>
+                </div>
+            </header>
+            <div class="main">
+                <h5 class="mb-4">These are your recipes</h5>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Under 30 minutes?</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    {% for info in recipes_name %}
+                    <tbody>
+                        <tr>
+                            <td>{{info["name"]}}</td>
+                            <td>{{info["minutes"]}}</td>
+                            <td class='d-flex'>
+                                <a class='me-2' href="/recipes/{{info['id']}}">view instructions</a>
+                                <p class='me-2'>|</p>
+                                <a class='me-2'href="/recipes/{{info['id']}}/edit">edit</a>
+                                <p class='me-2'>|</p>
+                                <a href="/delete/{{info['id']}}">delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

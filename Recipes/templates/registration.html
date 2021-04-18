@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <title>Login and Registration</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}     
+        {% if messages %}                            
+            {% for message in messages %}
+            <div class="alert alert-danger" role = "alert">           
+                <p>{{message}}</p> 
+            </div>                   
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="container-lg">
+            <div class="d-flex justify-content-around pt-5 mb-3">
+                <div class="leftmain">
+                    
+                    <h2>Register</h2>
+                    <form action="/form" method="post">
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput" class="form-label">First Name:</label>
+                            <input type="text" class="form-control" name="first_name">
+                        </div>
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput2" class="form-label">Last Name:</label>
+                            <input type="text" class="form-control" name="last_name">
+                        </div>
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput" class="form-label">Email:</label>
+                            <input type="text" class="form-control" name="e-mail">
+                        </div>
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput2" class="form-label">Password:</label>
+                            <input type="password" class="form-control" name="Password">
+                        </div>
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput" class="form-label">Comfirm password:</label>
+                            <input type="password" class="form-control" name="confirm_password">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">Button</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="rightmain">
+                    <h2>Login</h2>
+                    <form action="/login" method="post">
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput" class="form-label">Email:</label>
+                            <input type="text" class="form-control" name="Email">
+                        </div>
+                        <div class="mb-3 col-sm">
+                            <label for="formGroupExampleInput2" class="form-label">Password:</label>
+                            <input type="password" class="form-control" name="pword">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">Button</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <title>Garlic</title>
+    </head>
+    <body>
+        <div class="container pt-4">
+            <header class="d-flex justify-content-between mb-4">
+                <h2>{{show_recipe[0]['name']}}</h2>
+                <a href="/recipes">Dashboard</a>
+            </header>
+            <div class="d-flex justify-content-around border">
+                <div class="leftbody">
+                    <h5 class="mb-4">Description:</h5>
+                    <h5 class="mb-4">Under 30 minutes:</h5>
+                    <h5 >Instructions:</h5>
+                </div>
+                <div class="rightbody">
+                    <p class="ms-5 mb-5">{{show_recipe[0]['description']}}</p>
+                    <p class="ms-5 mb-4">{{show_recipe[0]['minutes']}}</p>
+                    {% for items in show_recipe %}
+                    <ul>
+                        <li class="ms-4">{{items['instructions']}}</li>
+                    </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
